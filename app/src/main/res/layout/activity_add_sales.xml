@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.sales.AddSalesActivity">
+
+    <LinearLayout
+        android:id="@+id/layout_sales"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.frontiertechnologypartners.beganretail.widgets.MMTextInputLayout
+            style="@style/TextInputLayoutStyle"
+            android:hint="@string/sales_order_number"
+            app:boxStrokeColor="@color/register_input_box_stroke">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_sales_order_no"
+                style="@style/TextInputEditTextStyle" />
+
+        </com.frontiertechnologypartners.beganretail.widgets.MMTextInputLayout>
+
+        <org.mmtextview.components.MMButton
+            android:id="@+id/btn_add_sales_item"
+            style="@style/smallButtonStyle"
+            android:layout_marginBottom="5dp"
+            android:text="@string/add_new_item" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_sales_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <org.mmtextview.components.MMButton
+                android:id="@+id/btn_save"
+                style="@style/smallButtonStyle"
+                android:layout_weight="1"
+                android:text="@string/save" />
+
+            <org.mmtextview.components.MMButton
+                android:id="@+id/btn_cancel"
+                style="@style/smallButtonStyle"
+                android:layout_weight="1"
+                android:text="@string/cancel" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
