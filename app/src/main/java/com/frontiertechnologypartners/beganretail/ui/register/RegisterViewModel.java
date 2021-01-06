@@ -23,23 +23,23 @@ public class RegisterViewModel extends BaseViewModel {
         this.networkRepository = networkRepository;
     }
 
-    public void register(Map<String, Object> body) {
-        disposable.add(networkRepository.register(body)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe(__ -> registerResponse.setValue(ApiResponse.loading()))
-                .subscribeWith(new DisposableSingleObserver<RegisterResponse>() {
-                    @Override
-                    public void onSuccess(RegisterResponse value) {
-                        registerResponse.setValue(ApiResponse.success(value));
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        registerResponse.setValue(ApiResponse.error(getErrorMessage(e)));
-                    }
-                }));
-    }
+//    public void register(Map<String, Object> body) {
+//        disposable.add(networkRepository.register(body)
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .doOnSubscribe(__ -> registerResponse.setValue(ApiResponse.loading()))
+//                .subscribeWith(new DisposableSingleObserver<RegisterResponse>() {
+//                    @Override
+//                    public void onSuccess(RegisterResponse value) {
+//                        registerResponse.setValue(ApiResponse.success(value));
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//                        registerResponse.setValue(ApiResponse.error(getErrorMessage(e)));
+//                    }
+//                }));
+//    }
 
 
     public void statesTownships() {

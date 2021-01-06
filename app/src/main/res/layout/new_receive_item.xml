@@ -87,6 +87,26 @@
         </TableRow>
 
         <TableRow
+            android:id="@+id/commission_table_row"
+            android:divider="@drawable/table_divider"
+            android:showDividers="beginning|middle|end"
+            android:visibility="gone">
+
+            <org.mmtextview.components.MMTextView
+                style="@style/textViewStyle"
+                android:layout_span="2"
+                android:layout_weight="1"
+                android:text="@string/com_per" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tv_commission"
+                style="@style/textViewStyle"
+                android:layout_span="2"
+                android:layout_weight="1"
+                tools:text="textView" />
+        </TableRow>
+
+        <TableRow
             android:divider="@drawable/table_divider"
             android:showDividers="beginning|middle|end">
 

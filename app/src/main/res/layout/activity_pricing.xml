@@ -30,6 +30,16 @@
             android:layout_marginBottom="10dp"
             android:text="@string/search" />
 
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tv_no_items"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/no_items"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_pricing_item"
             android:layout_width="match_parent"

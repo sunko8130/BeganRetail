@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tool="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     android:orientation="vertical">
 
+    <ImageButton
+        android:id="@+id/btn_delete"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/image"
+        android:scaleType="fitXY"
+        android:src="@drawable/delete" />
+
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_delete"
         android:divider="@drawable/table_divider"
         android:showDividers="beginning|middle|end"
         android:stretchColumns="*">
@@ -25,7 +35,7 @@
                 android:text="@string/item_name" />
 
             <org.mmtextview.components.MMTextView
-                android:id="@+id/tv_item_name"
+                android:id="@+id/tv_sales_item_name"
                 style="@style/textViewStyle"
                 android:layout_span="2"
                 android:layout_weight="1"
@@ -43,7 +53,7 @@
                 android:text="@string/number_of_items" />
 
             <org.mmtextview.components.MMTextView
-                android:id="@+id/tv_no_of_items"
+                android:id="@+id/tv_sales_item_no_of_items"
                 style="@style/textViewStyle"
                 android:layout_span="2"
                 android:layout_weight="1"
@@ -61,7 +71,7 @@
                 android:text="@string/uom" />
 
             <org.mmtextview.components.MMTextView
-                android:id="@+id/tv_uom"
+                android:id="@+id/tv_sales_item_uom"
                 style="@style/textViewStyle"
                 android:layout_span="2"
                 android:layout_weight="1"
@@ -79,7 +89,7 @@
                 android:text="@string/price" />
 
             <org.mmtextview.components.MMTextView
-                android:id="@+id/tv_price"
+                android:id="@+id/tv_sales_item_price"
                 style="@style/textViewStyle"
                 android:layout_span="2"
                 android:layout_weight="1"
@@ -97,11 +107,11 @@
                 android:text="@string/cost" />
 
             <org.mmtextview.components.MMTextView
-                android:id="@+id/tv_cost"
+                android:id="@+id/tv_sales_item_cost"
                 style="@style/textViewStyle"
                 android:layout_span="2"
                 android:layout_weight="1"
                 tools:text="textView" />
         </TableRow>
     </TableLayout>
-</LinearLayout>
+</RelativeLayout>

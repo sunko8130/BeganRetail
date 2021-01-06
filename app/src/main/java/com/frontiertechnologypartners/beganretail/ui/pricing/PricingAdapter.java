@@ -5,13 +5,15 @@ import android.view.ViewGroup;
 
 import com.frontiertechnologypartners.beganretail.R;
 import com.frontiertechnologypartners.beganretail.delegate.OnRecyclerItemClickListener;
+import com.frontiertechnologypartners.beganretail.delegate.OnRecyclerMultiItemClickListener;
+import com.frontiertechnologypartners.beganretail.model.ItemPrice;
 import com.frontiertechnologypartners.beganretail.model.ReceiveItems;
 import com.frontiertechnologypartners.beganretail.ui.base.GenericRecyclerViewAdapter;
 import androidx.annotation.NonNull;
 
-public class PricingAdapter extends GenericRecyclerViewAdapter<ReceiveItems, OnRecyclerItemClickListener, PricingViewHolder> {
+public class PricingAdapter extends GenericRecyclerViewAdapter<ItemPrice, OnRecyclerMultiItemClickListener, PricingViewHolder> {
 
-    PricingAdapter(Context context, OnRecyclerItemClickListener listener) {
+    PricingAdapter(Context context, OnRecyclerMultiItemClickListener listener) {
         super(context, listener);
     }
 

@@ -5,15 +5,15 @@ import android.view.ViewGroup;
 
 import com.frontiertechnologypartners.beganretail.R;
 import com.frontiertechnologypartners.beganretail.delegate.OnRecyclerItemClickListener;
-import com.frontiertechnologypartners.beganretail.model.ReceiveItems;
+import com.frontiertechnologypartners.beganretail.delegate.OnRecyclerMultiItemClickListener;
+import com.frontiertechnologypartners.beganretail.model.SaleOrder;
 import com.frontiertechnologypartners.beganretail.ui.base.GenericRecyclerViewAdapter;
-import com.frontiertechnologypartners.beganretail.ui.sub_categories.SubCategoryViewHolder;
 
 import androidx.annotation.NonNull;
 
-public class SalesAdapter extends GenericRecyclerViewAdapter<ReceiveItems, OnRecyclerItemClickListener, SalesViewHolder> {
+public class SalesAdapter extends GenericRecyclerViewAdapter<SaleOrder, OnRecyclerMultiItemClickListener, SalesViewHolder> {
 
-    SalesAdapter(Context context, OnRecyclerItemClickListener listener) {
+    SalesAdapter(Context context, OnRecyclerMultiItemClickListener listener) {
         super(context, listener);
     }
 

@@ -61,10 +61,30 @@
                     tool:text="textView" />
             </TableRow>
 
-            <org.mmtextview.components.MMButton
-                android:id="@+id/btn_view_detail"
-                style="@style/smallButtonStyle"
-                android:text="@string/view_detail" />
+            <TableRow>
+
+                <org.mmtextview.components.MMButton
+                    android:id="@+id/btn_view_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_margin="10dp"
+                    android:layout_span="2"
+                    android:background="@color/md_blue_grey_700"
+                    android:text="@string/view_detail"
+                    android:textColor="@color/white_full" />
+
+                <org.mmtextview.components.MMButton
+                    android:id="@+id/btn_update"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_margin="10dp"
+                    android:layout_span="2"
+                    android:background="@color/md_blue_grey_700"
+                    android:text="@string/update"
+                    android:textColor="@color/white_full" />
+            </TableRow>
+
+
         </TableLayout>
     </androidx.cardview.widget.CardView>
 

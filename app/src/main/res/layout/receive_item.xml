@@ -24,20 +24,6 @@
                 <org.mmtextview.components.MMTextView
                     style="@style/textViewStyle"
                     android:layout_span="2"
-                    android:text="@string/receive_number" />
-
-                <org.mmtextview.components.MMTextView
-                    android:id="@+id/tv_receive_no"
-                    style="@style/textViewStyle"
-                    android:layout_span="2"
-                    tool:text="textView" />
-            </TableRow>
-
-            <TableRow>
-
-                <org.mmtextview.components.MMTextView
-                    style="@style/textViewStyle"
-                    android:layout_span="2"
                     android:text="@string/receive_date" />
 
                 <org.mmtextview.components.MMTextView
@@ -55,7 +41,7 @@
                     android:text="@string/distributor" />
 
                 <org.mmtextview.components.MMTextView
-                    android:id="@+id/tv_distributor"
+                    android:id="@+id/tv_receiver_name"
                     style="@style/textViewStyle"
                     android:layout_span="2"
                     tool:text="textView" />
@@ -66,10 +52,10 @@
                 <org.mmtextview.components.MMTextView
                     style="@style/textViewStyle"
                     android:layout_span="2"
-                    android:text="@string/number_of_items" />
+                    android:text="@string/amount" />
 
                 <org.mmtextview.components.MMTextView
-                    android:id="@+id/tv_no_of_items"
+                    android:id="@+id/tv_amount"
                     style="@style/textViewStyle"
                     android:layout_span="2"
                     tool:text="textView" />

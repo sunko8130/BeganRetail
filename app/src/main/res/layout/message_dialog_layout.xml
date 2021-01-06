@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
+            <org.mmtextview.components.MMTextView
                 android:id="@+id/tv_message"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -28,15 +28,13 @@
                 android:textSize="17sp"
                 tools:text="Hello" />
 
-            <com.google.android.material.button.MaterialButton
+            <org.mmtextview.components.MMButton
                 android:id="@+id/btn_ok"
                 style="@style/smallButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:text="@string/ok" />
-
-
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

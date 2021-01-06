@@ -47,25 +47,63 @@
                     tool:text="textView" />
             </TableRow>
 
-            <LinearLayout
+            <TableRow>
+
+                <org.mmtextview.components.MMTextView
+                    style="@style/textViewStyle"
+                    android:layout_span="2"
+                    android:text="@string/uom" />
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tv_uom"
+                    style="@style/textViewStyle"
+                    android:layout_span="2"
+                    tool:text="textView" />
+            </TableRow>
+
+            <TableRow>
+
+                <org.mmtextview.components.MMTextView
+                    style="@style/textViewStyle"
+                    android:layout_gravity="center_vertical"
+                    android:layout_span="2"
+                    android:text="@string/price" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_span="2">
+
+                    <com.frontiertechnologypartners.beganretail.widgets.MMEditText
+                        android:id="@+id/et_price"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/spinner_background"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        tool:text="textView" />
+
+                    <org.mmtextview.components.MMTextView
+                        style="@style/textViewStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="2"
+                        android:text="@string/kyat" />
+                </LinearLayout>
+
+            </TableRow>
+
+            <org.mmtextview.components.MMButton
+                android:id="@+id/btn_add_price"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <org.mmtextview.components.MMButton
-                    android:id="@+id/btn_price_look"
-                    style="@style/smallButtonStyle"
-                    android:layout_weight="1"
-                    android:text="@string/price_look" />
-
-                <org.mmtextview.components.MMButton
-                    android:id="@+id/btn_set_the_price"
-                    style="@style/smallButtonStyle"
-                    android:layout_weight="1"
-                    android:text="@string/set_the_price" />
-            </LinearLayout>
-
-
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/md_blue_grey_700"
+                android:text="@string/add_price"
+                android:textColor="@color/white_full" />
         </TableLayout>
     </androidx.cardview.widget.CardView>
 

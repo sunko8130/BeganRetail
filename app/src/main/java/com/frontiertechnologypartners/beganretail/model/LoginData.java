@@ -3,95 +3,105 @@ package com.frontiertechnologypartners.beganretail.model;
 import com.google.gson.annotations.SerializedName;
 
 public class LoginData {
+    @SerializedName("id")
+    private int id;
 
-	@SerializedName("contactPhone2")
-	private String contactPhone2;
+    @SerializedName("contactPhone2")
+    private String contactPhone2;
 
-	@SerializedName("address")
-	private String address;
+    @SerializedName("address")
+    private String address;
 
-	@SerializedName("stateId")
-	private int stateId;
+    @SerializedName("stateId")
+    private int stateId;
 
-	@SerializedName("postalCode")
-	private int postalCode;
+    @SerializedName("postalCode")
+    private int postalCode;
 
-	@SerializedName("contactPhone1")
-	private String contactPhone1;
+    @SerializedName("contactPhone1")
+    private String contactPhone1;
 
-	@SerializedName("userName")
-	private String userName;
+    @SerializedName("userName")
+    private String userName;
 
-	@SerializedName("password")
-	private String password;
+    @SerializedName("password")
+    private String password;
 
-	@SerializedName("ownerName")
-	private String ownerName;
+    @SerializedName("ownerName")
+    private String ownerName;
 
-	@SerializedName("userLoginName")
-	private String userLoginName;
+    @SerializedName("userLoginName")
+    private String userLoginName;
 
-	@SerializedName("storeName")
-	private String storeName;
+    @SerializedName("storeName")
+    private String storeName;
 
-	@SerializedName("townshipId")
-	private int townshipId;
+    @SerializedName("townshipId")
+    private int townshipId;
 
-	@SerializedName("nrc")
-	private String nrc;
+    @SerializedName("nrc")
+    private String nrc;
 
-	@SerializedName("status")
-	private String status;
+    @SerializedName("status")
+    private String status;
 
-	public String getContactPhone2(){
-		return contactPhone2;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public String getAddress(){
-		return address;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public int getStateId(){
-		return stateId;
-	}
+    public String getContactPhone2() {
+        return contactPhone2;
+    }
 
-	public int getPostalCode(){
-		return postalCode;
-	}
+    public String getAddress() {
+        return address;
+    }
 
-	public String getContactPhone1(){
-		return contactPhone1;
-	}
+    public int getStateId() {
+        return stateId;
+    }
 
-	public String getUserName(){
-		return userName;
-	}
+    public int getPostalCode() {
+        return postalCode;
+    }
 
-	public String getPassword(){
-		return password;
-	}
+    public String getContactPhone1() {
+        return contactPhone1;
+    }
 
-	public String getOwnerName(){
-		return ownerName;
-	}
+    public String getUserName() {
+        return userName;
+    }
 
-	public String getUserLoginName(){
-		return userLoginName;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public String getStoreName(){
-		return storeName;
-	}
+    public String getOwnerName() {
+        return ownerName;
+    }
 
-	public int getTownshipId(){
-		return townshipId;
-	}
+    public String getUserLoginName() {
+        return userLoginName;
+    }
 
-	public String getNrc(){
-		return nrc;
-	}
+    public String getStoreName() {
+        return storeName;
+    }
 
-	public String getStatus(){
-		return status;
-	}
+    public int getTownshipId() {
+        return townshipId;
+    }
+
+    public String getNrc() {
+        return nrc;
+    }
+
+    public String getStatus() {
+        return status;
+    }
 }

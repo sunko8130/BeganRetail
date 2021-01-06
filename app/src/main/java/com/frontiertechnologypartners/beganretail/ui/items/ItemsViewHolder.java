@@ -7,32 +7,43 @@ import android.widget.TextView;
 import com.frontiertechnologypartners.beganretail.R;
 import com.frontiertechnologypartners.beganretail.delegate.OnRecyclerItemClickListener;
 import com.frontiertechnologypartners.beganretail.model.ReceiveItems;
+import com.frontiertechnologypartners.beganretail.model.SearchItem;
 import com.frontiertechnologypartners.beganretail.ui.base.BaseViewHolder;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
-public class ItemsViewHolder extends BaseViewHolder<ReceiveItems, OnRecyclerItemClickListener> {
+public class ItemsViewHolder extends BaseViewHolder<SearchItem, OnRecyclerItemClickListener> {
 
     private Context mContext;
 
-    @BindView(R.id.tv_barcode)
-    TextView tvBarcode;
+    @BindView(R.id.tv_main_category_name)
+    TextView tvMainCategoryName;
 
-    @BindView(R.id.tv_item_code)
-    TextView tvItemCode;
+    @BindView(R.id.tv_sub_category_name)
+    TextView tvSubCategoryName;
 
     @BindView(R.id.tv_item_name)
     TextView tvItemName;
 
-    @BindView(R.id.tv_qty)
-    TextView tvQty;
+    @BindView(R.id.tv_stock_balance)
+    TextView tvStockBalance;
+
+    @BindView(R.id.tv_uom)
+    TextView tvUOM;
 
     ItemsViewHolder(View itemView, OnRecyclerItemClickListener listener) {
         super(itemView, listener);
         mContext = itemView.getContext();
+        ButterKnife.bind(this, itemView);
     }
 
     @Override
-    public void onBind(ReceiveItems receiveItems) {
+    public void onBind(SearchItem searchItem) {
+        tvMainCategoryName.setText(searchItem.getCategoryName());
+        tvSubCategoryName.setText(searchItem.getSubCategoryName());
+        tvItemName.setText(searchItem.getItemName());
+        tvStockBalance.setText(String.valueOf(searchItem.getTotalBaseUomQty()));
+        tvUOM.setText(searchItem.getUomName());
     }
 }

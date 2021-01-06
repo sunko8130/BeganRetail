@@ -11,14 +11,29 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.frontiertechnologypartners.beganretail.R;
+import com.frontiertechnologypartners.beganretail.common.ViewModelFactory;
+import com.frontiertechnologypartners.beganretail.model.LoginData;
+import com.frontiertechnologypartners.beganretail.model.LoginResponse;
+import com.frontiertechnologypartners.beganretail.network.ApiResponse;
 import com.frontiertechnologypartners.beganretail.ui.base.BaseActivity;
 import com.frontiertechnologypartners.beganretail.ui.home.MainActivity;
 import com.frontiertechnologypartners.beganretail.ui.register.RegisterActivity;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.gson.Gson;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.inject.Inject;
+
+import androidx.lifecycle.ViewModelProviders;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.paperdb.Paper;
+
+import static com.frontiertechnologypartners.beganretail.util.Constant.ALREADY_LOGIN;
+import static com.frontiertechnologypartners.beganretail.util.Constant.LOGIN_DATA;
 
 public class LoginActivity extends BaseActivity {
     @BindView(R.id.et_login_name)
@@ -27,14 +42,77 @@ public class LoginActivity extends BaseActivity {
     @BindView(R.id.et_password)
     TextInputEditText etPassword;
 
+    @Inject
+    ViewModelFactory viewModelFactory;
+
+    private LoginViewModel loginViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+        loginViewModel = ViewModelProviders.of(this, viewModelFactory).get(LoginViewModel.class);
 
         // making notification bar transparent
         changeStatusBarColor();
+
+        // Check if user is already logged in
+        checkLoggedIn();
+
+        //observe login data
+        observeLogin();
+    }
+
+    private void checkLoggedIn() {
+        boolean alreadyLogin = Paper.book().read(ALREADY_LOGIN, false);
+        if (alreadyLogin) {
+            Intent mainIntent = new Intent(this, MainActivity.class);
+            mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            mainIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(mainIntent);
+            finish();
+        }
+    }
+
+    private void observeLogin() {
+        loginViewModel.loginResponse.observe(this, this::consumeLogin);
+    }
+
+    private void consumeLogin(ApiResponse<?> apiResponse) {
+        switch (apiResponse.status) {
+            case LOADING:
+                loadingDialog.show();
+                break;
+            case SUCCESS:
+                loadingDialog.dismiss();
+                LoginResponse loginResponse = (LoginResponse) apiResponse.data;
+                if (loginResponse != null) {
+                    int statusCode = loginResponse.getStatus().getCode();
+                    if (statusCode == 1) {
+                        //save login data
+                        LoginData loginData = loginResponse.getData();
+                        Paper.book().write(LOGIN_DATA, loginData);
+                        Paper.book().write(ALREADY_LOGIN, true);
+                        Intent mainIntent = new Intent(this, MainActivity.class);
+                        startActivity(mainIntent);
+                    } else {
+                        messageDialog.show();
+                        messageDialog.loadingMessage(loginResponse.getStatus().getMessage());
+                    }
+                }
+                break;
+            case ERROR:
+                loadingDialog.dismiss();
+                if (apiResponse.message != null) {
+                    messageDialog.show();
+                    messageDialog.loadingMessage(apiResponse.message);
+                }
+                break;
+
+            default:
+                break;
+        }
     }
 
     @OnClick(R.id.btn_login)
@@ -46,7 +124,11 @@ public class LoginActivity extends BaseActivity {
         } else {
             String loginName = etLoginName.getText().toString().trim();
             String loginPassword = etPassword.getText().toString().trim();
-            //TODO: login upload
+            Map<String, Object> parameters = new HashMap<>();
+            parameters.put("username", loginName);
+            parameters.put("password", loginPassword);
+            loginViewModel.login(parameters);
+//            loginViewModel.login(loginName, loginPassword);
         }
     }
 

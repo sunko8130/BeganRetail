@@ -1,31 +1,81 @@
 package com.frontiertechnologypartners.beganretail.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class SalesItem {
-    private String price;
-    private String amount;
+    @SerializedName("itemCode")
+    private String itemCode;
+    @SerializedName("itemName")
+    private String itemName;
+    @SerializedName("uom")
+    private String uom;
+    @SerializedName("uomId")
+    private int uomId;
+    @SerializedName("price")
+    private double price;
+    @SerializedName("total")
+    private double amount;
+    @SerializedName("qty")
     private String quantity;
+
     public SalesItem() {
     }
 
-    public SalesItem(String price, String amount, String quantity) {
+    public SalesItem(String itemCode, String itemName, String uom, int uomId, double price, double amount, String quantity) {
+        this.itemCode = itemCode;
+        this.itemName = itemName;
+        this.uom = uom;
+        this.uomId = uomId;
         this.price = price;
         this.amount = amount;
         this.quantity = quantity;
     }
 
-    public String getPrice() {
+    public String getItemCode() {
+        return itemCode;
+    }
+
+    public void setItemCode(String itemCode) {
+        this.itemCode = itemCode;
+    }
+
+    public String getItemName() {
+        return itemName;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public String getUom() {
+        return uom;
+    }
+
+    public void setUom(String uom) {
+        this.uom = uom;
+    }
+
+    public int getUomId() {
+        return uomId;
+    }
+
+    public void setUomId(int uomId) {
+        this.uomId = uomId;
+    }
+
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public String getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 

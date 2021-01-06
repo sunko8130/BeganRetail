@@ -5,12 +5,13 @@ import android.view.ViewGroup;
 
 import com.frontiertechnologypartners.beganretail.R;
 import com.frontiertechnologypartners.beganretail.delegate.OnRecyclerItemClickListener;
+import com.frontiertechnologypartners.beganretail.model.OrderItem;
 import com.frontiertechnologypartners.beganretail.model.ReceiveItems;
 import com.frontiertechnologypartners.beganretail.ui.base.GenericRecyclerViewAdapter;
 
 import androidx.annotation.NonNull;
 
-public class AddNewReceiveItemsAdapter extends GenericRecyclerViewAdapter<ReceiveItems, OnRecyclerItemClickListener, AddNewReceiveItemsViewHolder> {
+public class AddNewReceiveItemsAdapter extends GenericRecyclerViewAdapter<OrderItem, OnRecyclerItemClickListener, AddNewReceiveItemsViewHolder> {
 
     AddNewReceiveItemsAdapter(Context context, OnRecyclerItemClickListener listener) {
         super(context, listener);

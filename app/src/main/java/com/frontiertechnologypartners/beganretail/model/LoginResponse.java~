@@ -1,0 +1,20 @@
+package com.frontiertechnologypartners.beganretail.model;
+
+import com.google.gson.annotations.SerializedName;
+
+public class LoginResponse{
+
+	@SerializedName("data")
+	private Data data;
+
+	@SerializedName("status")
+	private Status status;
+
+	public Data getData(){
+		return data;
+	}
+
+	public Status getStatus(){
+		return status;
+	}
+}

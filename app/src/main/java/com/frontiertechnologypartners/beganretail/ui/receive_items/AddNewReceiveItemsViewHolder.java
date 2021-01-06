@@ -1,49 +1,70 @@
 package com.frontiertechnologypartners.beganretail.ui.receive_items;
 
 import android.content.Context;
+import android.text.Html;
 import android.view.View;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.frontiertechnologypartners.beganretail.R;
 import com.frontiertechnologypartners.beganretail.delegate.OnRecyclerItemClickListener;
+import com.frontiertechnologypartners.beganretail.model.OrderItem;
 import com.frontiertechnologypartners.beganretail.model.ReceiveItems;
 import com.frontiertechnologypartners.beganretail.ui.base.BaseViewHolder;
+import com.frontiertechnologypartners.beganretail.util.Util;
 
 import org.mmtextview.components.MMButton;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
-public class AddNewReceiveItemsViewHolder extends BaseViewHolder<ReceiveItems, OnRecyclerItemClickListener> {
+public class AddNewReceiveItemsViewHolder extends BaseViewHolder<OrderItem, OnRecyclerItemClickListener> {
 
     private Context mContext;
 
-    @BindView(R.id.tv_receive_no)
-    TextView tvReceiveNo;
+    @BindView(R.id.tv_cost)
+    TextView tvCost;
 
-    @BindView(R.id.tv_receive_date)
-    TextView tvReceiveDate;
+    @BindView(R.id.tv_uom)
+    TextView tvUOM;
 
-    @BindView(R.id.tv_distributor)
-    TextView tvDistributor;
+    @BindView(R.id.tv_price)
+    TextView tvPrice;
 
     @BindView(R.id.tv_no_of_items)
     TextView tvNoOfItems;
 
-    @BindView(R.id.btn_view_detail)
-    MMButton btnViewDetail;
+    @BindView(R.id.tv_item_name)
+    TextView tvItemNames;
+
+    @BindView(R.id.tv_commission)
+    TextView tvCommission;
+
+    @BindView(R.id.commission_table_row)
+    TableRow commissionTableRow;
+
 
     AddNewReceiveItemsViewHolder(View itemView, OnRecyclerItemClickListener listener) {
         super(itemView, listener);
         mContext = itemView.getContext();
+        ButterKnife.bind(this, itemView);
     }
 
     @Override
-    public void onBind(ReceiveItems receiveItems) {
-        btnViewDetail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+    public void onBind(OrderItem orderItem) {
+        if ((Util.convertAmountWithSeparator(orderItem.getComPer()).equals("0"))) {
+            commissionTableRow.setVisibility(View.GONE);
+        } else {
+            commissionTableRow.setVisibility(View.VISIBLE);
+        }
+        tvCommission.setText(Html.fromHtml(mContext.getResources().getString(R.string.order_item_commission,
+                Util.convertAmountWithSeparator(orderItem.getComPer()))));
+        tvItemNames.setText(orderItem.getItem());
+        tvNoOfItems.setText(String.valueOf(orderItem.getQty()));
+        tvUOM.setText(orderItem.getUom());
+        tvPrice.setText(Html.fromHtml(mContext.getResources().getString(R.string.order_item_price,
+                Util.convertAmountWithSeparator(orderItem.getPrice()))));
+        tvCost.setText(Html.fromHtml(mContext.getResources().getString(R.string.order_item_cost,
+                Util.convertAmountWithSeparator(orderItem.getTotal()))));
     }
 }

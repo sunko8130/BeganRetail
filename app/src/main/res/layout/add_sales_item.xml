@@ -49,8 +49,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="2dp"
             android:background="@drawable/spinner_background"
             android:baselineAligned="true"
             android:orientation="horizontal"
@@ -78,11 +79,13 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginEnd="16dp"
                     android:text="@string/uom"
+                    android:visibility="gone"
                     android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatSpinner
                     android:id="@+id/spinner_uom"
                     style="@style/SpinnerStyle"
+                    android:gravity="center_vertical"
                     android:layout_margin="0dp" />
 
             </LinearLayout>
@@ -97,6 +100,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_price"
                 style="@style/TextInputEditTextStyle"
+                android:enabled="false"
                 android:inputType="number" />
 
         </com.frontiertechnologypartners.beganretail.widgets.MMTextInputLayout>
@@ -112,19 +116,6 @@
                 android:inputType="number" />
 
         </com.frontiertechnologypartners.beganretail.widgets.MMTextInputLayout>
-
-        <org.mmtextview.components.MMButton
-            android:id="@+id/btn_add_sales_item"
-            style="@style/smallButtonStyle"
-            android:layout_marginBottom="5dp"
-            android:text="@string/add_new_item" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_sales_item"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp" />
 
         <LinearLayout
             android:layout_width="match_parent"

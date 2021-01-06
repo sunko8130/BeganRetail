@@ -1,0 +1,15 @@
+package com.frontiertechnologypartners.beganretail.ui.home;
+
+import com.frontiertechnologypartners.beganretail.network.NetworkRepository;
+import com.frontiertechnologypartners.beganretail.ui.base.BaseViewModel;
+
+import javax.inject.Inject;
+
+public class HomeViewModel extends BaseViewModel {
+    private NetworkRepository networkRepository;
+
+    @Inject
+    public HomeViewModel(NetworkRepository networkRepository) {
+        this.networkRepository = networkRepository;
+    }
+}

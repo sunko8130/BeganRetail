@@ -5,13 +5,14 @@ import android.view.ViewGroup;
 
 import com.frontiertechnologypartners.beganretail.R;
 import com.frontiertechnologypartners.beganretail.delegate.OnRecyclerItemClickListener;
+import com.frontiertechnologypartners.beganretail.model.Payment;
 import com.frontiertechnologypartners.beganretail.model.ReceiveItems;
 import com.frontiertechnologypartners.beganretail.ui.base.GenericRecyclerViewAdapter;
 import com.frontiertechnologypartners.beganretail.ui.receive_items.ReceiveItemsViewHolder;
 
 import androidx.annotation.NonNull;
 
-public class PaymentAdapter extends GenericRecyclerViewAdapter<ReceiveItems, OnRecyclerItemClickListener, PaymentViewHolder> {
+public class PaymentAdapter extends GenericRecyclerViewAdapter<Payment, OnRecyclerItemClickListener, PaymentViewHolder> {
 
     PaymentAdapter(Context context, OnRecyclerItemClickListener listener) {
         super(context, listener);

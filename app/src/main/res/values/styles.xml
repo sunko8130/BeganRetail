@@ -19,6 +19,7 @@
         <item name="android:layout_marginStart">8dp</item>
         <item name="android:layout_marginEnd">8dp</item>
         <item name="android:layout_marginTop">5dp</item>
+        <item name="strokeColor">@color/md_blue_grey_700</item>
         <item name="android:textSize">17sp</item>
     </style>
 
@@ -58,11 +59,26 @@
         <item name="android:textSize">16sp</item>
     </style>
 
+    <style name="outLineButtonStyle" parent="@style/Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">8dp</item>
+        <item name="rippleColor">@color/md_blue_grey_500</item>
+        <item name="android:textColor">@color/md_white_1000</item>
+        <item name="cornerRadius">5dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="backgroundTint">@color/md_blue_grey_700</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
     <style name="SpinnerStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">16dp</item>
-        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
         <item name="android:layout_marginTop">5dp</item>
         <item name="android:background">@drawable/spinner_background</item>
     </style>
@@ -95,20 +111,31 @@
         <item name="android:colorControlHighlight" tools:ignore="NewApi">@color/colorPrimary</item>
     </style>
 
-    <style name="ImageButtonStyle" parent="@style/Widget.MaterialComponents.Button.OutlinedButton">
+    <!--    <style name="ImageButtonStyle" parent="@style/Widget.MaterialComponents.Button.OutlinedButton">-->
+    <!--        <item name="android:layout_width">match_parent</item>-->
+    <!--        <item name="android:layout_height">wrap_content</item>-->
+    <!--        <item name="rippleColor">@color/md_orange_200</item>-->
+    <!--        <item name="cornerRadius">5dp</item>-->
+    <!--        <item name="strokeColor">@color/colorPrimary</item>-->
+    <!--        <item name="android:textColor">@color/md_grey_500</item>-->
+    <!--        <item name="android:layout_marginStart">8dp</item>-->
+    <!--        <item name="android:layout_marginEnd">8dp</item>-->
+    <!--        <item name="android:layout_marginTop">2dp</item>-->
+    <!--        <item name="android:textSize">17sp</item>-->
+    <!--        <item name="android:paddingTop">12dp</item>-->
+    <!--        <item name="android:paddingBottom">12dp</item>-->
+    <!--    </style>-->
+
+    <style name="ImageButtonStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="rippleColor">@color/md_orange_200</item>
-        <item name="cornerRadius">5dp</item>
-        <item name="strokeColor">@color/colorPrimary</item>
-        <item name="android:textColor">@color/md_grey_500</item>
-        <item name="android:layout_marginStart">16dp</item>
-        <item name="android:layout_marginEnd">16dp</item>
-        <item name="android:layout_marginTop">4dp</item>
-        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:layout_marginTop">2dp</item>
         <item name="android:textSize">17sp</item>
         <item name="android:paddingTop">12dp</item>
         <item name="android:paddingBottom">12dp</item>
+        <item name="background">@drawable/date_background</item>
     </style>
 
     <style name="textViewStyle">
@@ -118,6 +145,7 @@
     </style>
 
     <style name="RadioStyle" parent="@style/Widget.MaterialComponents.CompoundButton.RadioButton" />
+
     <style name="CustomProgressBarTheme">
         <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
         <item name="android:windowBackground">@android:color/transparent</item>

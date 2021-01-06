@@ -1,13 +1,20 @@
 package com.frontiertechnologypartners.beganretail.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.MenuItem;
 
 import com.frontiertechnologypartners.beganretail.R;
+import com.frontiertechnologypartners.beganretail.common.ViewModelFactory;
+import com.frontiertechnologypartners.beganretail.model.LoginData;
 import com.frontiertechnologypartners.beganretail.ui.base.BaseActivity;
+import com.frontiertechnologypartners.beganretail.ui.login.LoginActivity;
 import com.google.android.material.navigation.NavigationView;
 
 import org.mmtextview.components.complex.MMNavigationView;
+
+import javax.inject.Inject;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -17,6 +24,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.paperdb.Paper;
+
+import static com.frontiertechnologypartners.beganretail.util.Constant.LOGIN_DATA;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
     @BindView(R.id.toolbar)
@@ -43,8 +53,13 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         navView.setNavigationItemSelectedListener(this);
         displaySelectedScreen(R.id.nav_home);
 
-        ToolbarViewHolder toolbarViewHolder=new ToolbarViewHolder(toolbar);
-        toolbarViewHolder.tvToolbarName.setText("Welcome, Mg Mg");
+        //login data
+        LoginData loginData = Paper.book().read(LOGIN_DATA);
+
+        if (loginData != null) {
+            ToolbarViewHolder toolbarViewHolder = new ToolbarViewHolder(toolbar);
+            toolbarViewHolder.tvToolbarName.setText(Html.fromHtml(getResources().getString(R.string.toolbar_name, loginData.getUserName())));
+        }
     }
 
     private void displaySelectedScreen(int itemId) {
@@ -53,6 +68,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         switch (itemId) {
             case R.id.nav_home:
                 fragment = new HomeFragment();
+                break;
+            case R.id.nav_logout:
+                logout();
                 break;
             default:
                 break;
@@ -92,5 +110,12 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 }
             }
         }
+    }
+
+    private void logout() {
+        Paper.book().destroy();
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 }

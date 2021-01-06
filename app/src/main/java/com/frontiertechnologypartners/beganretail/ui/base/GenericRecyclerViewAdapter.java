@@ -70,7 +70,8 @@ public abstract class GenericRecyclerViewAdapter<T, L extends BaseRecyclerListen
             throw new IllegalArgumentException("Cannot add null item to the Recycler adapter");
         }
         items.add(item);
-        notifyItemInserted(items.size() - 1);
+        notifyDataSetChanged();
+//        notifyItemInserted(items.size() - 1);
     }
 
     public void addToBeginning(T item) {
@@ -91,6 +92,11 @@ public abstract class GenericRecyclerViewAdapter<T, L extends BaseRecyclerListen
             items.remove(position);
             notifyDataSetChanged();
         }
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
     }
 
     public void clear() {

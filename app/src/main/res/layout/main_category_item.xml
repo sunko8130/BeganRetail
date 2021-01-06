@@ -24,20 +24,6 @@
                 <org.mmtextview.components.MMTextView
                     style="@style/textViewStyle"
                     android:layout_span="2"
-                    android:text="@string/main_category_code" />
-
-                <org.mmtextview.components.MMTextView
-                    android:id="@+id/tv_main_category_code"
-                    style="@style/textViewStyle"
-                    android:layout_span="2"
-                    tool:text="textView" />
-            </TableRow>
-
-            <TableRow>
-
-                <org.mmtextview.components.MMTextView
-                    style="@style/textViewStyle"
-                    android:layout_span="2"
                     android:text="@string/main_category_name" />
 
                 <org.mmtextview.components.MMTextView
@@ -52,10 +38,52 @@
                 <org.mmtextview.components.MMTextView
                     style="@style/textViewStyle"
                     android:layout_span="2"
-                    android:text="@string/number_of_items" />
+                    android:text="@string/sub_category_name" />
 
                 <org.mmtextview.components.MMTextView
-                    android:id="@+id/tv_no_of_items"
+                    android:id="@+id/tv_sub_category_name"
+                    style="@style/textViewStyle"
+                    android:layout_span="2"
+                    tool:text="textView" />
+            </TableRow>
+
+            <TableRow>
+
+                <org.mmtextview.components.MMTextView
+                    style="@style/textViewStyle"
+                    android:layout_span="2"
+                    android:text="@string/item_name" />
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tv_item_name"
+                    style="@style/textViewStyle"
+                    android:layout_span="2"
+                    tool:text="textView" />
+            </TableRow>
+
+            <TableRow>
+
+                <org.mmtextview.components.MMTextView
+                    style="@style/textViewStyle"
+                    android:layout_span="2"
+                    android:text="@string/stock_balance" />
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tv_stock_balance"
+                    style="@style/textViewStyle"
+                    android:layout_span="2"
+                    tool:text="textView" />
+            </TableRow>
+
+            <TableRow>
+
+                <org.mmtextview.components.MMTextView
+                    style="@style/textViewStyle"
+                    android:layout_span="2"
+                    android:text="@string/uom" />
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tv_uom"
                     style="@style/textViewStyle"
                     android:layout_span="2"
                     tool:text="textView" />

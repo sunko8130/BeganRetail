@@ -9,6 +9,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="5dp"
         app:cardBackgroundColor="@color/md_blue_grey_100"
         app:cardCornerRadius="2dp">
 
@@ -56,6 +57,20 @@
 
                 <org.mmtextview.components.MMTextView
                     android:id="@+id/tv_total_amount"
+                    style="@style/textViewStyle"
+                    android:layout_span="2"
+                    tool:text="textView" />
+            </TableRow>
+
+            <TableRow>
+
+                <org.mmtextview.components.MMTextView
+                    style="@style/textViewStyle"
+                    android:layout_span="2"
+                    android:text="@string/payment" />
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tv_payment_amount"
                     style="@style/textViewStyle"
                     android:layout_span="2"
                     tool:text="textView" />

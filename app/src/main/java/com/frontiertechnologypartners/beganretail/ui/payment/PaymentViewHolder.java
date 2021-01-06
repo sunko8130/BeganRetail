@@ -1,19 +1,22 @@
 package com.frontiertechnologypartners.beganretail.ui.payment;
 
 import android.content.Context;
+import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
 
 import com.frontiertechnologypartners.beganretail.R;
 import com.frontiertechnologypartners.beganretail.delegate.OnRecyclerItemClickListener;
+import com.frontiertechnologypartners.beganretail.model.Payment;
 import com.frontiertechnologypartners.beganretail.model.ReceiveItems;
 import com.frontiertechnologypartners.beganretail.ui.base.BaseViewHolder;
+import com.frontiertechnologypartners.beganretail.util.Util;
 import com.google.android.material.button.MaterialButton;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class PaymentViewHolder extends BaseViewHolder<ReceiveItems, OnRecyclerItemClickListener> {
+public class PaymentViewHolder extends BaseViewHolder<Payment, OnRecyclerItemClickListener> {
 
     private Context mContext;
 
@@ -32,6 +35,9 @@ public class PaymentViewHolder extends BaseViewHolder<ReceiveItems, OnRecyclerIt
     @BindView(R.id.tv_total_amount)
     TextView tvTotalAmount;
 
+    @BindView(R.id.tv_payment_amount)
+    TextView tvPaymentAmount;
+
     PaymentViewHolder(View itemView, OnRecyclerItemClickListener listener) {
         super(itemView, listener);
         mContext = itemView.getContext();
@@ -39,7 +45,16 @@ public class PaymentViewHolder extends BaseViewHolder<ReceiveItems, OnRecyclerIt
     }
 
     @Override
-    public void onBind(ReceiveItems receiveItems) {
+    public void onBind(Payment payment) {
+        tvDeliveryOrderNo.setText(payment.getDeliveryNo());
+        tvPaymentNo.setText(payment.getPaymentNo());
+        tvPaymentDate.setText(payment.getPaidDate());
+        tvBalanceToPaid.setText(Html.fromHtml(mContext.getResources().getString(R.string.order_item_cost,
+                Util.convertAmountWithSeparator(payment.getRemainAmount()))));
+        tvTotalAmount.setText(Html.fromHtml(mContext.getResources().getString(R.string.order_item_cost,
+                Util.convertAmountWithSeparator(payment.getTotalAmount()))));
+        tvPaymentAmount.setText(Html.fromHtml(mContext.getResources().getString(R.string.order_item_cost,
+                Util.convertAmountWithSeparator(payment.getCurrentPaidAmount()))));
 
     }
 }

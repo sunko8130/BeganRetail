@@ -15,11 +15,11 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ui.receive_items.AddNewReceiveItemActivity" />
         <activity android:name=".ui.pricing.PricingActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
         </activity>
         <activity android:name=".ui.sales.AddSalesActivity" />
         <activity android:name=".ui.payment.AddNewPaymentActivity" />
@@ -37,8 +37,8 @@
         </activity>
         <activity android:name=".ui.sales.SalesActivity" />
         <activity android:name=".ui.items.ItemsActivity" />
-        <activity android:name=".ui.sub_categories.SubCategoryActivity" />
-        <activity android:name=".ui.main_categories.MainCategoriesActivity" />
+        <activity android:name=".ui.category.CategorySearchActivity" />
+        <activity android:name=".ui.search_categories.MainCategoriesActivity" />
         <activity android:name=".ui.receive_items.ReceiveItemViewActivity" />
         <activity android:name=".ui.receive_items.ReceiveItemsActivity" />
         <activity
@@ -47,13 +47,10 @@
         <activity
             android:name=".ui.login.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".ui.home.MainActivity"

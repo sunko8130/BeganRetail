@@ -33,7 +33,7 @@ public class AddPriceItemViewHolder extends BaseViewHolder<SalesItem, OnRecycler
 
     @Override
     public void onBind(SalesItem salesItem) {
-        tvPrice.setText(salesItem.getPrice());
+        tvPrice.setText(String.valueOf(salesItem.getPrice()));
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -12,35 +12,22 @@
         app:cardBackgroundColor="@color/md_blue_grey_100"
         app:cardCornerRadius="2dp">
 
-
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:showDividers="middle"
             android:stretchColumns="*">
 
             <TableRow>
 
-                <TextView
+                <org.mmtextview.components.MMTextView
                     style="@style/textViewStyle"
                     android:layout_span="2"
-                    android:text="@string/barcode" />
+                    android:text="@string/main_category_name" />
 
-                <TextView
-                    android:id="@+id/tv_barcode"
-                    style="@style/textViewStyle"
-                    android:layout_span="2"
-                    tool:text="textView" />
-            </TableRow>
-
-            <TableRow>
-
-                <TextView
-                    style="@style/textViewStyle"
-                    android:layout_span="2"
-                    android:text="@string/item_code" />
-
-                <TextView
-                    android:id="@+id/tv_item_code"
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tv_main_category_name"
                     style="@style/textViewStyle"
                     android:layout_span="2"
                     tool:text="textView" />
@@ -48,12 +35,26 @@
 
             <TableRow>
 
-                <TextView
+                <org.mmtextview.components.MMTextView
+                    style="@style/textViewStyle"
+                    android:layout_span="2"
+                    android:text="@string/sub_category_name" />
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tv_sub_category_name"
+                    style="@style/textViewStyle"
+                    android:layout_span="2"
+                    tool:text="textView" />
+            </TableRow>
+
+            <TableRow>
+
+                <org.mmtextview.components.MMTextView
                     style="@style/textViewStyle"
                     android:layout_span="2"
                     android:text="@string/item_name" />
 
-                <TextView
+                <org.mmtextview.components.MMTextView
                     android:id="@+id/tv_item_name"
                     style="@style/textViewStyle"
                     android:layout_span="2"
@@ -62,13 +63,27 @@
 
             <TableRow>
 
-                <TextView
+                <org.mmtextview.components.MMTextView
                     style="@style/textViewStyle"
                     android:layout_span="2"
-                    android:text="@string/quantity" />
+                    android:text="@string/stock_balance" />
 
-                <TextView
-                    android:id="@+id/tv_qty"
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tv_stock_balance"
+                    style="@style/textViewStyle"
+                    android:layout_span="2"
+                    tool:text="textView" />
+            </TableRow>
+
+            <TableRow>
+
+                <org.mmtextview.components.MMTextView
+                    style="@style/textViewStyle"
+                    android:layout_span="2"
+                    android:text="@string/uom" />
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tv_uom"
                     style="@style/textViewStyle"
                     android:layout_span="2"
                     tool:text="textView" />

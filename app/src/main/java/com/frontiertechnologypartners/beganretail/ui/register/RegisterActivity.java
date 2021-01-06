@@ -333,7 +333,7 @@ public class RegisterActivity extends BaseActivity implements MessageDialog.OnCl
             parameters.put("postalCode", postalCode);
             parameters.put("contactPhone1", contactPhone1);
             parameters.put("contactPhone2", contactPhone2);
-            registerViewModel.register(parameters);
+//            registerViewModel.register(parameters);
         }
     }
 
