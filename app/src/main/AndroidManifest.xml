@@ -13,18 +13,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.topup.TopupActivity"/>
+        <activity android:name=".ui.topup.PreTopupActivity" />
+        <activity android:name=".ui.emoney_request.EmoneyRequestActivity" />
         <activity android:name=".ui.receive_items.AddNewReceiveItemActivity" />
         <activity android:name=".ui.pricing.PricingActivity">
-            <!--            <intent-filter>-->
-            <!--                <action android:name="android.intent.action.MAIN" />-->
 
-            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-            <!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".ui.sales.AddSalesActivity" />
-        <activity android:name=".ui.payment.AddNewPaymentActivity" />
         <activity android:name=".ui.payment.PaymentActivity" />
-        <activity android:name=".ui.receive_items.AddReceiveOrderItemActivity" />
         <activity android:name=".ui.stock_balance.StockBalanceActivity" />
         <activity android:name=".ui.sales.SalesOrdersActivity">
 
@@ -49,6 +52,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -64,6 +68,8 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
+        <activity android:name=".ui.emoney_request_transaction.EmoneyRequestTransactionActivity"/>
+
     </application>
 
 </manifest>

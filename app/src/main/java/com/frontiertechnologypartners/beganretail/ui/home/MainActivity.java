@@ -8,8 +8,11 @@ import android.view.MenuItem;
 import com.frontiertechnologypartners.beganretail.R;
 import com.frontiertechnologypartners.beganretail.common.ViewModelFactory;
 import com.frontiertechnologypartners.beganretail.model.LoginData;
+import com.frontiertechnologypartners.beganretail.model.SVAResponse;
+import com.frontiertechnologypartners.beganretail.network.ApiResponse;
 import com.frontiertechnologypartners.beganretail.ui.base.BaseActivity;
 import com.frontiertechnologypartners.beganretail.ui.login.LoginActivity;
+import com.frontiertechnologypartners.beganretail.ui.topup.TopupViewModel;
 import com.google.android.material.navigation.NavigationView;
 
 import org.mmtextview.components.complex.MMNavigationView;
@@ -22,6 +25,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.paperdb.Paper;
@@ -37,6 +41,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
     @BindView(R.id.drawer_layout)
     DrawerLayout drawer;
+
+    LoginData loginData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +60,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         displaySelectedScreen(R.id.nav_home);
 
         //login data
-        LoginData loginData = Paper.book().read(LOGIN_DATA);
+        loginData = Paper.book().read(LOGIN_DATA);
 
         if (loginData != null) {
             ToolbarViewHolder toolbarViewHolder = new ToolbarViewHolder(toolbar);

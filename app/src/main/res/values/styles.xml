@@ -1,11 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorSecondary">@color/colorPrimary</item>
+        <!--        <item name="colorSecondary">@color/colorPrimary</item>-->
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -44,6 +44,21 @@
         <item name="android:textSize">17sp</item>
     </style>
 
+    <style name="textView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="top_up_amount_button_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:textColor">@color/md_white_1000</item>
+        <item name="android:background">@drawable/bg_selector</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
     <style name="smallButtonStyle" parent="@style/Widget.MaterialComponents.Button">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -59,18 +74,18 @@
         <item name="android:textSize">16sp</item>
     </style>
 
-    <style name="outLineButtonStyle" parent="@style/Widget.MaterialComponents.Button.OutlinedButton">
+    <style name="orangeButtonStyle" parent="@style/Widget.MaterialComponents.Button.OutlinedButton">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:padding">8dp</item>
-        <item name="rippleColor">@color/md_blue_grey_500</item>
+        <item name="rippleColor">@color/md_orange_400</item>
         <item name="android:textColor">@color/md_white_1000</item>
         <item name="cornerRadius">5dp</item>
         <item name="android:layout_marginStart">8dp</item>
         <item name="android:layout_marginEnd">8dp</item>
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:layout_marginBottom">8dp</item>
-        <item name="backgroundTint">@color/md_blue_grey_700</item>
+        <item name="backgroundTint">@color/md_orange_400</item>
         <item name="android:textSize">16sp</item>
     </style>
 
@@ -144,11 +159,18 @@
         <item name="android:textSize">15sp</item>
     </style>
 
-    <style name="RadioStyle" parent="@style/Widget.MaterialComponents.CompoundButton.RadioButton" />
-
     <style name="CustomProgressBarTheme">
         <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
         <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="pre_top_up_text_view">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:layout_marginTop">10dp</item>
     </style>
 
 </resources>

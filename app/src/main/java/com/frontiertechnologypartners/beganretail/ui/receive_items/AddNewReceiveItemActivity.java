@@ -355,10 +355,18 @@ public class AddNewReceiveItemActivity extends BaseActivity implements OnRecycle
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
+            Intent intent = new Intent(this, ReceiveItemsActivity.class);
+            startActivity(intent);
             finish();
-            return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, ReceiveItemsActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override
@@ -368,6 +376,7 @@ public class AddNewReceiveItemActivity extends BaseActivity implements OnRecycle
 
     @Override
     public void onOkButtonClick() {
+        messageDialog.dismiss();
         Intent intent = new Intent(this, ReceiveItemsActivity.class);
         startActivity(intent);
         finish();

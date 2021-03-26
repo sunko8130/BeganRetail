@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.topup.PreTopupFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/operator_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/bg_stroke"
+            android:visibility="visible" />
+
+        <com.frontiertechnologypartners.beganretail.widgets.MMTextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
+            android:hint="@string/phone_number"
+            app:boxStrokeColor="@color/colorPrimary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_ph_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_person_black_24dp"
+                android:inputType="number" />
+        </com.frontiertechnologypartners.beganretail.widgets.MMTextInputLayout>
+
+        <org.mmtextview.components.MMTextView
+            style="@style/textView"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/top_up_available_amount"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp">
+
+            <Button
+                android:id="@+id/btn_1000"
+                style="@style/top_up_amount_button_style"
+                android:text="@string/amt_1000" />
+
+            <Button
+                android:id="@+id/btn_3000"
+                style="@style/top_up_amount_button_style"
+                android:text="@string/amt_3000" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp">
+
+            <Button
+                android:id="@+id/btn_5000"
+                style="@style/top_up_amount_button_style"
+                android:text="@string/amt_5000" />
+
+            <Button
+                android:id="@+id/btn_10000"
+                style="@style/top_up_amount_button_style"
+                android:text="@string/amt_10000" />
+
+        </LinearLayout>
+
+        <org.mmtextview.components.MMButton
+            android:id="@+id/btn_continue"
+            style="@style/smallButtonStyle"
+            android:text="@string/msg_continue" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

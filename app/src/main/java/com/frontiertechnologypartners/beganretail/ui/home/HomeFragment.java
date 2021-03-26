@@ -22,10 +22,13 @@ import com.frontiertechnologypartners.beganretail.R;
 import com.frontiertechnologypartners.beganretail.common.ViewModelFactory;
 import com.frontiertechnologypartners.beganretail.model.BalanceResponse;
 import com.frontiertechnologypartners.beganretail.model.LoginData;
+import com.frontiertechnologypartners.beganretail.model.SVAResponse;
 import com.frontiertechnologypartners.beganretail.model.SetSellingPriceResponse;
 import com.frontiertechnologypartners.beganretail.network.ApiResponse;
 import com.frontiertechnologypartners.beganretail.ui.base.BaseFragment;
 import com.frontiertechnologypartners.beganretail.ui.category.CategorySearchActivity;
+import com.frontiertechnologypartners.beganretail.ui.emoney_request.EmoneyRequestActivity;
+import com.frontiertechnologypartners.beganretail.ui.emoney_request_transaction.EmoneyRequestTransactionActivity;
 import com.frontiertechnologypartners.beganretail.ui.items.ItemsActivity;
 import com.frontiertechnologypartners.beganretail.ui.payment.PaymentActivity;
 import com.frontiertechnologypartners.beganretail.ui.pricing.PricingActivity;
@@ -34,11 +37,16 @@ import com.frontiertechnologypartners.beganretail.ui.receive_items.ReceiveItemsA
 import com.frontiertechnologypartners.beganretail.ui.sales.AddSalesActivity;
 import com.frontiertechnologypartners.beganretail.ui.sales.SalesActivity;
 import com.frontiertechnologypartners.beganretail.ui.stock_balance.StockBalanceActivity;
+import com.frontiertechnologypartners.beganretail.ui.topup.PreTopupActivity;
+import com.frontiertechnologypartners.beganretail.ui.topup.PreTopupFragment;
+import com.frontiertechnologypartners.beganretail.ui.topup.TopupActivity;
 import com.frontiertechnologypartners.beganretail.util.Util;
 
 import javax.inject.Inject;
 
 import static com.frontiertechnologypartners.beganretail.util.Constant.LOGIN_DATA;
+import static com.frontiertechnologypartners.beganretail.util.Constant.SVA_AMOUNT;
+import static com.frontiertechnologypartners.beganretail.util.Constant.UPDATE_AMOUNT;
 
 public class HomeFragment extends BaseFragment implements View.OnClickListener {
 
@@ -60,14 +68,28 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     @BindView(R.id.ll_stock_balance)
     LinearLayout layoutStockBalance;
 
+    @BindView(R.id.ll_top_up)
+    LinearLayout layoutTopUp;
+
+    @BindView(R.id.ll_request_money)
+    LinearLayout layoutRequestMoney;
+
+    @BindView(R.id.ll_cashout_list)
+    LinearLayout layoutCashoutList;
+
     @BindView(R.id.tv_today_sales_amount)
     TextView tvTotalSalesAmount;
+
+    @BindView(R.id.tv_user_amount)
+    TextView tvUserAmount;
 
     @Inject
     ViewModelFactory viewModelFactory;
     private HomeViewModel homeViewModel;
     private LoginData loginData;
     private int merchantId;
+    private int updateAmount;
+    private String userAmount;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -91,6 +113,9 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         //observe balance
         homeViewModel.balance(merchantId);
         observeBalance();
+
+        homeViewModel.refreshAmount(merchantId);
+        observeRefreshAmount();
     }
 
     private void observeBalance() {
@@ -126,6 +151,34 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         }
     }
 
+    private void observeRefreshAmount() {
+        homeViewModel.svaResponse.observe(this, this::consumeSVAResponse);
+    }
+
+    private void consumeSVAResponse(ApiResponse<?> apiResponse) {
+        switch (apiResponse.status) {
+            case LOADING:
+                loadingDialog.show();
+                break;
+            case SUCCESS:
+                loadingDialog.dismiss();
+                SVAResponse refreshAmount = (SVAResponse) apiResponse.data;
+                if (refreshAmount != null) {
+                    userAmount = Util.convertAmountWithSeparator(refreshAmount.getSva());
+                    tvUserAmount.setText(Html.fromHtml(getResources().getString(R.string.user_amount, userAmount)));
+                }
+                break;
+            case ERROR:
+                if (apiResponse.message != null) {
+                    messageDialog.show();
+                    messageDialog.loadingMessage(apiResponse.message);
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -135,6 +188,9 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         layoutReceiveItems.setOnClickListener(this);
         layoutSellingPrice.setOnClickListener(this);
         layoutStockBalance.setOnClickListener(this);
+        layoutTopUp.setOnClickListener(this);
+        layoutRequestMoney.setOnClickListener(this);
+        layoutCashoutList.setOnClickListener(this);
     }
 
     @Override
@@ -154,6 +210,12 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         layoutSellingPrice.setPressed(false);
         layoutStockBalance.setSelected(false);
         layoutStockBalance.setPressed(false);
+        layoutTopUp.setSelected(false);
+        layoutTopUp.setPressed(false);
+        layoutRequestMoney.setSelected(false);
+        layoutRequestMoney.setPressed(false);
+        layoutCashoutList.setSelected(false);
+        layoutCashoutList.setPressed(false);
 
         // change state
         selectedLayout.setSelected(true);
@@ -183,6 +245,19 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             case R.id.ll_stock_balance:
                 Intent stockBalanceIntent = new Intent(getActivity(), StockBalanceActivity.class);
                 startActivity(stockBalanceIntent);
+                break;
+            case R.id.ll_request_money:
+                Intent requestMoneyIntent = new Intent(getActivity(), EmoneyRequestActivity.class);
+                requestMoneyIntent.putExtra(SVA_AMOUNT, Integer.parseInt(userAmount.replace(",", "")));
+                startActivity(requestMoneyIntent);
+                break;
+            case R.id.ll_top_up:
+                Intent topupIntent = new Intent(getActivity(), PreTopupActivity.class);
+                startActivity(topupIntent);
+                break;
+            case R.id.ll_cashout_list:
+                Intent transactionIntent = new Intent(getActivity(), EmoneyRequestTransactionActivity.class);
+                startActivity(transactionIntent);
                 break;
             default:
                 break;

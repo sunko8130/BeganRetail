@@ -1,6 +1,8 @@
 package com.frontiertechnologypartners.beganretail.network;
 
 import com.frontiertechnologypartners.beganretail.model.BalanceResponse;
+import com.frontiertechnologypartners.beganretail.model.CashOutTransactionResponse;
+import com.frontiertechnologypartners.beganretail.model.CashoutResponse;
 import com.frontiertechnologypartners.beganretail.model.CategoryResponse;
 import com.frontiertechnologypartners.beganretail.model.DeleteSaleItemResponse;
 import com.frontiertechnologypartners.beganretail.model.DeliverNumbersResponse;
@@ -16,9 +18,12 @@ import com.frontiertechnologypartners.beganretail.model.NRCFormatResponse;
 import com.frontiertechnologypartners.beganretail.model.NewReceiveSaveResponse;
 import com.frontiertechnologypartners.beganretail.model.PaymentResponse;
 import com.frontiertechnologypartners.beganretail.model.PreSaleResponse;
+import com.frontiertechnologypartners.beganretail.model.PreTopUpResponse;
+import com.frontiertechnologypartners.beganretail.model.ProvidersResponse;
 import com.frontiertechnologypartners.beganretail.model.ReceiveItemViewResponse;
 import com.frontiertechnologypartners.beganretail.model.ReceiveItemsResponse;
 import com.frontiertechnologypartners.beganretail.model.ReceiveNumbersResponse;
+import com.frontiertechnologypartners.beganretail.model.SVAResponse;
 import com.frontiertechnologypartners.beganretail.model.SaleNumbersResponse;
 import com.frontiertechnologypartners.beganretail.model.SaleOrderDetailResponse;
 import com.frontiertechnologypartners.beganretail.model.SaleOrdersSaveResponse;
@@ -26,6 +31,7 @@ import com.frontiertechnologypartners.beganretail.model.SaleOrdersSearchResponse
 import com.frontiertechnologypartners.beganretail.model.SetSellingPriceResponse;
 import com.frontiertechnologypartners.beganretail.model.StateCityResponse;
 import com.frontiertechnologypartners.beganretail.model.StockBalanceResponse;
+import com.frontiertechnologypartners.beganretail.model.TopUpResponse;
 import com.frontiertechnologypartners.beganretail.model.UOMResponse;
 import com.frontiertechnologypartners.beganretail.model.UpdateSaleItemResponse;
 
@@ -169,6 +175,35 @@ public class NetworkRepository {
 
     public Single<UpdateSaleItemResponse> updateSaleItem(int id, String itemCode, int uomId, int merchantId, int qty, String salesNo) {
         return retrofitService.updateSaleItem(id, itemCode, uomId, merchantId, qty, salesNo);
+    }
+
+
+    public Single<ProvidersResponse> getProviders() {
+        return retrofitService.getProviders();
+    }
+
+    public Single<PreTopUpResponse> preTopUp(String userId, String amount, String provider) {
+        return retrofitService.preTopUp(userId, amount, provider);
+    }
+
+    public Single<TopUpResponse> topUp(String userId, String provider, String mobile,
+                                       String amount, String discountAmount) {
+        return retrofitService.topUp(userId, provider, mobile, amount, discountAmount);
+    }
+
+    public Single<SVAResponse> refreshAmount(int userId) {
+        return retrofitService.refreshAmount(userId);
+    }
+
+    public Single<CashoutResponse> cashOut(String userId, String amount) {
+        return retrofitService.cashOut(userId, amount);
+    }
+
+    public Single<CashOutTransactionResponse> cashOutSearch(String userId, String cashoutStatus,
+                                                            String reqStartDate, String reqEndDate,
+                                                            String reqDeliStartDate, String reqDeliEndDate) {
+        return retrofitService.cashoutSearch(userId, cashoutStatus, reqStartDate, reqEndDate,
+                reqDeliStartDate, reqDeliEndDate);
     }
 
 }

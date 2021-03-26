@@ -63,7 +63,7 @@
 
             <org.mmtextview.components.MMButton
                 android:id="@+id/btn_view_detail"
-                style="@style/smallButtonStyle"
+                style="@style/orangeButtonStyle"
                 android:text="@string/view_detail" />
 
         </TableLayout>

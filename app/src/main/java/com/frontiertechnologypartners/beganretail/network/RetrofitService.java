@@ -1,6 +1,8 @@
 package com.frontiertechnologypartners.beganretail.network;
 
 import com.frontiertechnologypartners.beganretail.model.BalanceResponse;
+import com.frontiertechnologypartners.beganretail.model.CashOutTransactionResponse;
+import com.frontiertechnologypartners.beganretail.model.CashoutResponse;
 import com.frontiertechnologypartners.beganretail.model.CategoryResponse;
 import com.frontiertechnologypartners.beganretail.model.DeleteSaleItemResponse;
 import com.frontiertechnologypartners.beganretail.model.DeliverNumbersResponse;
@@ -16,9 +18,12 @@ import com.frontiertechnologypartners.beganretail.model.NRCFormatResponse;
 import com.frontiertechnologypartners.beganretail.model.NewReceiveSaveResponse;
 import com.frontiertechnologypartners.beganretail.model.PaymentResponse;
 import com.frontiertechnologypartners.beganretail.model.PreSaleResponse;
+import com.frontiertechnologypartners.beganretail.model.PreTopUpResponse;
+import com.frontiertechnologypartners.beganretail.model.ProvidersResponse;
 import com.frontiertechnologypartners.beganretail.model.ReceiveItemViewResponse;
 import com.frontiertechnologypartners.beganretail.model.ReceiveItemsResponse;
 import com.frontiertechnologypartners.beganretail.model.ReceiveNumbersResponse;
+import com.frontiertechnologypartners.beganretail.model.SVAResponse;
 import com.frontiertechnologypartners.beganretail.model.SaleNumbersResponse;
 import com.frontiertechnologypartners.beganretail.model.SaleOrderDetailResponse;
 import com.frontiertechnologypartners.beganretail.model.SaleOrdersSaveResponse;
@@ -26,6 +31,7 @@ import com.frontiertechnologypartners.beganretail.model.SaleOrdersSearchResponse
 import com.frontiertechnologypartners.beganretail.model.SetSellingPriceResponse;
 import com.frontiertechnologypartners.beganretail.model.StateCityResponse;
 import com.frontiertechnologypartners.beganretail.model.StockBalanceResponse;
+import com.frontiertechnologypartners.beganretail.model.TopUpResponse;
 import com.frontiertechnologypartners.beganretail.model.UOMResponse;
 import com.frontiertechnologypartners.beganretail.model.UpdateSaleItemResponse;
 
@@ -191,5 +197,40 @@ public interface RetrofitService {
                                                   @Field("merchantId") int merchantId,
                                                   @Field("qty") int qty,
                                                   @Field("salesNo") String salesNo);
+
+    @POST("providers")
+    Single<ProvidersResponse> getProviders();
+
+    @FormUrlEncoded
+    @POST("pre-topup")
+    Single<PreTopUpResponse> preTopUp(@Field("userId") String userId,
+                                      @Field("amount") String amount,
+                                      @Field("provider") String provider);
+
+    @FormUrlEncoded
+    @POST("topup")
+    Single<TopUpResponse> topUp(@Field("userId") String userId,
+                                @Field("operator") String provider,
+                                @Field("mobile") String mobile,
+                                @Field("amount") String amount,
+                                @Field("discountAmount") String discountAmount);
+
+    @FormUrlEncoded
+    @POST("user/sva")
+    Single<SVAResponse> refreshAmount(@Field("userId") int userId);
+
+    @FormUrlEncoded
+    @POST("cashout")
+    Single<CashoutResponse> cashOut(@Field("userId") String userId,
+                                    @Field("amount") String amount);
+
+    @FormUrlEncoded
+    @POST("cashout/search")
+    Single<CashOutTransactionResponse> cashoutSearch(@Field("merchantId") String userId,
+                                                     @Field("cashoutStatus") String cashoutStatus,
+                                                     @Field("reqStartDate") String reqStartDate,
+                                                     @Field("reqEndDate") String reqEndDate,
+                                                     @Field("reqDeliveryStartDate") String reqDeliveryStartDate,
+                                                     @Field("reqDeliveryEndDate") String reqDeliveryEndDate);
 
 }

@@ -45,6 +45,12 @@ public class BaseViewModel extends ViewModel {
     public final MutableLiveData<ApiResponse<?>> paymentItemsResponse = new MutableLiveData<>();
     public final MutableLiveData<ApiResponse<?>> deleteSaleItemResponse = new MutableLiveData<>();
     public final MutableLiveData<ApiResponse<?>> updateSaleItemResponse = new MutableLiveData<>();
+    public final MutableLiveData<ApiResponse<?>> providersResponse = new MutableLiveData<>();
+    public final MutableLiveData<ApiResponse<?>> preTopUpResponse = new MutableLiveData<>();
+    public final MutableLiveData<ApiResponse<?>> topUpResponse = new MutableLiveData<>();
+    public final MutableLiveData<ApiResponse<?>> svaResponse = new MutableLiveData<>();
+    public final MutableLiveData<ApiResponse<?>> cashoutResponse = new MutableLiveData<>();
+    public final MutableLiveData<ApiResponse<?>> cashoutTransactionResponse = new MutableLiveData<>();
 
     @Override
     protected void onCleared() {

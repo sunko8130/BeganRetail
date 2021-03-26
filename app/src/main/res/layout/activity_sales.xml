@@ -74,6 +74,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="2dp"
             android:text="@string/receive_date_from"
+            android:textColor="@color/black_full"
             android:visibility="gone" />
 
         <org.mmtextview.components.MMTextView
@@ -85,6 +86,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="2dp"
             android:text="@string/receive_date_from"
+            android:textColor="@color/black_full"
             android:visibility="gone" />
 
         <org.mmtextview.components.MMTextView

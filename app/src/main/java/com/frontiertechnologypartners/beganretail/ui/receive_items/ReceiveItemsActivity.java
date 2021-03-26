@@ -30,6 +30,7 @@ import com.frontiertechnologypartners.beganretail.model.ReceiveItemsResponse;
 import com.frontiertechnologypartners.beganretail.model.ReceiveNumbersResponse;
 import com.frontiertechnologypartners.beganretail.network.ApiResponse;
 import com.frontiertechnologypartners.beganretail.ui.base.BaseActivity;
+import com.frontiertechnologypartners.beganretail.ui.home.MainActivity;
 import com.frontiertechnologypartners.beganretail.ui.pricing.AddPriceItemAdapter;
 import com.frontiertechnologypartners.beganretail.util.Util;
 import com.frontiertechnologypartners.beganretail.widgets.MessageDialog;
@@ -434,5 +435,4 @@ public class ReceiveItemsActivity extends BaseActivity implements OnRecyclerItem
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

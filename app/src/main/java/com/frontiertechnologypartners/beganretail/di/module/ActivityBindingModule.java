@@ -1,16 +1,17 @@
 package com.frontiertechnologypartners.beganretail.di.module;
 
 import com.frontiertechnologypartners.beganretail.ui.category.CategorySearchActivity;
+import com.frontiertechnologypartners.beganretail.ui.emoney_request.EmoneyRequestActivity;
+import com.frontiertechnologypartners.beganretail.ui.emoney_request.EmoneyRequestConfirmFragment;
+import com.frontiertechnologypartners.beganretail.ui.emoney_request_transaction.EmoneyRequestTransactionActivity;
 import com.frontiertechnologypartners.beganretail.ui.home.MainActivity;
 import com.frontiertechnologypartners.beganretail.ui.items.ItemsActivity;
 import com.frontiertechnologypartners.beganretail.ui.login.LoginActivity;
 import com.frontiertechnologypartners.beganretail.ui.sales.SaleItemUpdateFragment;
 import com.frontiertechnologypartners.beganretail.ui.search_categories.MainCategoriesActivity;
-import com.frontiertechnologypartners.beganretail.ui.payment.AddNewPaymentActivity;
 import com.frontiertechnologypartners.beganretail.ui.payment.PaymentActivity;
 import com.frontiertechnologypartners.beganretail.ui.pricing.PricingActivity;
 import com.frontiertechnologypartners.beganretail.ui.receive_items.AddNewReceiveItemActivity;
-import com.frontiertechnologypartners.beganretail.ui.receive_items.AddReceiveOrderItemActivity;
 import com.frontiertechnologypartners.beganretail.ui.receive_items.ReceiveItemDetailFragment;
 import com.frontiertechnologypartners.beganretail.ui.receive_items.ReceiveItemViewActivity;
 import com.frontiertechnologypartners.beganretail.ui.receive_items.ReceiveItemsActivity;
@@ -21,6 +22,8 @@ import com.frontiertechnologypartners.beganretail.ui.sales.SaleItemDetailFragmen
 import com.frontiertechnologypartners.beganretail.ui.sales.SalesActivity;
 import com.frontiertechnologypartners.beganretail.ui.sales.SalesOrdersActivity;
 import com.frontiertechnologypartners.beganretail.ui.stock_balance.StockBalanceActivity;
+import com.frontiertechnologypartners.beganretail.ui.topup.PreTopupActivity;
+import com.frontiertechnologypartners.beganretail.ui.topup.TopupActivity;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -56,13 +59,7 @@ public abstract class ActivityBindingModule {
     abstract ReceiveItemViewActivity bindReceiveItemViewActivity();
 
     @ContributesAndroidInjector()
-    abstract AddNewPaymentActivity bindAddNewPaymentActivity();
-
-    @ContributesAndroidInjector()
     abstract PaymentActivity bindPaymentActivity();
-
-    @ContributesAndroidInjector()
-    abstract AddReceiveOrderItemActivity bindAddReceiveOrderItemActivity();
 
     @ContributesAndroidInjector()
     abstract StockBalanceActivity bindStockBalanceActivity();
@@ -79,8 +76,23 @@ public abstract class ActivityBindingModule {
     @ContributesAndroidInjector()
     abstract PricingActivity bindPricingActivity();
 
+    @ContributesAndroidInjector()
+    abstract EmoneyRequestActivity bindEmoneyRequestActivity();
+
+    @ContributesAndroidInjector()
+    abstract PreTopupActivity bindPreTopupActivity();
+
+    @ContributesAndroidInjector()
+    abstract TopupActivity bindTopupActivity();
+
+    @ContributesAndroidInjector()
+    abstract EmoneyRequestTransactionActivity bindEmoneyRequestTransactionActivity();
+
     @ContributesAndroidInjector
     abstract AddNewSaleItemFragment bindAddNewSaleItemFragment();
+
+    @ContributesAndroidInjector
+    abstract EmoneyRequestConfirmFragment bindEmoneyRequestConfirmFragment();
 
     @ContributesAndroidInjector
     abstract ReceiveItemDetailFragment bindReceiveItemDetailFragment();

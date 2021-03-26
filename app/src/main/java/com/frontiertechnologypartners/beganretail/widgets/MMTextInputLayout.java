@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.Html;
 import android.util.AttributeSet;
 
-
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.mmtextview.MMFontUtils;

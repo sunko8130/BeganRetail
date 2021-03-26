@@ -101,7 +101,7 @@
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
                 android:layout_marginBottom="5dp"
-                android:background="@color/md_blue_grey_700"
+                android:background="@color/md_orange_400"
                 android:text="@string/add_price"
                 android:textColor="@color/white_full" />
         </TableLayout>

@@ -2,6 +2,7 @@ package com.frontiertechnologypartners.beganretail.ui.home;
 
 import com.frontiertechnologypartners.beganretail.model.BalanceResponse;
 import com.frontiertechnologypartners.beganretail.model.MerchantItemsResponse;
+import com.frontiertechnologypartners.beganretail.model.SVAResponse;
 import com.frontiertechnologypartners.beganretail.network.ApiResponse;
 import com.frontiertechnologypartners.beganretail.network.NetworkRepository;
 import com.frontiertechnologypartners.beganretail.ui.base.BaseViewModel;
@@ -34,6 +35,24 @@ public class HomeViewModel extends BaseViewModel {
                     @Override
                     public void onError(Throwable e) {
                         balanceResponse.setValue(ApiResponse.error(getErrorMessage(e)));
+                    }
+                }));
+    }
+
+    public void refreshAmount(int userId){
+        disposable.add(networkRepository.refreshAmount(userId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe(__ -> svaResponse.setValue(ApiResponse.loading()))
+                .subscribeWith(new DisposableSingleObserver<SVAResponse>() {
+                    @Override
+                    public void onSuccess(SVAResponse value) {
+                        svaResponse.setValue(ApiResponse.success(value));
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        svaResponse.setValue(ApiResponse.error(getErrorMessage(e)));
                     }
                 }));
     }

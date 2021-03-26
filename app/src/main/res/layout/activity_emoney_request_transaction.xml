@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.emoney_request_transaction.EmoneyRequestTransactionActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <org.mmtextview.components.MMButton
+            android:id="@+id/btn_request_from_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/date_background"
+            android:drawableEnd="@drawable/ic_date_range_24dp"
+            android:hint="@string/request_from_date"
+            android:padding="8dp"
+            android:textAlignment="textStart"
+            android:textColor="@color/md_grey_500"
+            android:textSize="17sp" />
+
+        <org.mmtextview.components.MMButton
+            android:id="@+id/btn_request_to_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/date_background"
+            android:drawableEnd="@drawable/ic_date_range_24dp"
+            android:hint="@string/request_to_date"
+            android:padding="8dp"
+            android:textAlignment="textStart"
+            android:textColor="@color/md_grey_500"
+            android:textSize="17sp" />
+
+        <org.mmtextview.components.MMButton
+            android:id="@+id/btn_cashout_from_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/date_background"
+            android:drawableEnd="@drawable/ic_date_range_24dp"
+            android:hint="@string/cashout_from_date"
+            android:padding="8dp"
+            android:textAlignment="textStart"
+            android:textColor="@color/md_grey_500"
+            android:textSize="17sp" />
+
+        <org.mmtextview.components.MMButton
+            android:id="@+id/btn_cashout_to_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/date_background"
+            android:drawableEnd="@drawable/ic_date_range_24dp"
+            android:hint="@string/cashout_to_date"
+            android:padding="8dp"
+            android:textAlignment="textStart"
+            android:textColor="@color/md_grey_500"
+            android:textSize="17sp" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinner_status"
+            style="@style/SpinnerStyle" />
+
+        <org.mmtextview.components.MMButton
+            android:id="@+id/btn_search"
+            style="@style/smallButtonStyle"
+            android:layout_marginBottom="10dp"
+            android:text="@string/search" />
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tv_no_transaction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="2dp"
+            android:text="@string/no_transaction"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_emoney_transaction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

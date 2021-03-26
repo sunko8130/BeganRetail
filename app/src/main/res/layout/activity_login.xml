@@ -26,8 +26,7 @@
             style="@style/TextInputLayoutStyle"
             android:hint="@string/login_name"
             android:textColorHint="@color/md_white_1000"
-            app:boxStrokeColor="@color/text_input_box_stroke"
-            app:hintTextColor="@color/md_white_1000">
+            app:boxStrokeColor="@color/text_input_box_stroke">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_login_name"
@@ -43,9 +42,6 @@
             android:hint="@string/password"
             android:textColorHint="@color/md_white_1000"
             app:boxStrokeColor="@color/text_input_box_stroke"
-            app:endIconMode="password_toggle"
-            app:endIconTint="@color/md_blue_800"
-            app:hintTextColor="@color/md_white_1000"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -71,6 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:padding="8dp"
+            android:visibility="gone"
             android:text="@string/forgot_password"
             android:textAlignment="center"
             android:textColor="@color/md_white_1000"

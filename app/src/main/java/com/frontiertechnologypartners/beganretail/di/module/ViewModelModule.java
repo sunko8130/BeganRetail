@@ -4,6 +4,7 @@ import com.frontiertechnologypartners.beganretail.common.ViewModelFactory;
 import com.frontiertechnologypartners.beganretail.di.keys.ViewModelKey;
 import com.frontiertechnologypartners.beganretail.model.BalanceResponse;
 import com.frontiertechnologypartners.beganretail.ui.category.CategoryViewModel;
+import com.frontiertechnologypartners.beganretail.ui.emoney_request.CashOutViewModel;
 import com.frontiertechnologypartners.beganretail.ui.home.HomeViewModel;
 import com.frontiertechnologypartners.beganretail.ui.items.SearchItemViewModel;
 import com.frontiertechnologypartners.beganretail.ui.login.LoginViewModel;
@@ -13,6 +14,7 @@ import com.frontiertechnologypartners.beganretail.ui.receive_items.ReceiveItemsV
 import com.frontiertechnologypartners.beganretail.ui.register.RegisterViewModel;
 import com.frontiertechnologypartners.beganretail.ui.sales.SalesViewModel;
 import com.frontiertechnologypartners.beganretail.ui.stock_balance.StockBalanceViewModel;
+import com.frontiertechnologypartners.beganretail.ui.topup.TopupViewModel;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
@@ -72,6 +74,16 @@ public abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(PaymentViewModel.class)
     abstract ViewModel bindPaymentViewModel(PaymentViewModel paymentViewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(TopupViewModel.class)
+    abstract ViewModel bindTopupViewModel(TopupViewModel topupViewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(CashOutViewModel.class)
+    abstract ViewModel bindCashOutViewModel(CashOutViewModel cashOutViewModel);
 
     @Binds
     abstract ViewModelProvider.Factory bindViewModelFactory(ViewModelFactory factory);

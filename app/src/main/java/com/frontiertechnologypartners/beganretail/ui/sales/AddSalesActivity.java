@@ -26,6 +26,7 @@ import com.frontiertechnologypartners.beganretail.ui.base.BaseActivity;
 import com.frontiertechnologypartners.beganretail.ui.pricing.PricingViewModel;
 import com.frontiertechnologypartners.beganretail.util.Util;
 import com.frontiertechnologypartners.beganretail.widgets.MMEditText;
+import com.frontiertechnologypartners.beganretail.widgets.MMPhoneChecker.MyanmarPhoneNumber;
 import com.frontiertechnologypartners.beganretail.widgets.MessageDialog;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -66,6 +67,12 @@ public class AddSalesActivity extends BaseActivity implements OnRecyclerItemClic
 
     @BindView(R.id.et_sales_order_no)
     TextInputEditText etSaleNo;
+
+    @BindView(R.id.et_customer_name)
+    TextInputEditText etCustomerName;
+
+    @BindView(R.id.et_customer_phone)
+    TextInputEditText etCustomerPhone;
 
     @BindView(R.id.tv_total_amount)
     TextView tvTotalAmount;
@@ -200,7 +207,7 @@ public class AddSalesActivity extends BaseActivity implements OnRecyclerItemClic
     }
 
     @OnClick(R.id.btn_cancel)
-    void cancel(){
+    void cancel() {
         Intent intent = new Intent(AddSalesActivity.this, SalesActivity.class);
         startActivity(intent);
         finish();
@@ -223,6 +230,10 @@ public class AddSalesActivity extends BaseActivity implements OnRecyclerItemClic
     @OnClick(R.id.btn_save)
     void saveSaleItems() {
         String saleNo = etSaleNo.getText().toString();
+        String customerName = etCustomerName.getText().toString();
+        String customerPhone = etCustomerPhone.getText().toString();
+        MyanmarPhoneNumber myanmarPhoneNumber = new MyanmarPhoneNumber();
+        String operatorName = myanmarPhoneNumber.getTelecomName(customerPhone);
         if (TextUtils.isEmpty(saleNo)) {
             messageDialog.loadingMessage(getString(R.string.no_sale_number));
         } else {
@@ -230,7 +241,10 @@ public class AddSalesActivity extends BaseActivity implements OnRecyclerItemClic
             parameters.put("salesNo", saleNo);
             parameters.put("total", totalSaleAmount);
             parameters.put("merchantId", merchantId);
+            parameters.put("customerName", customerName);
+            parameters.put("customerPhone", customerPhone);
             parameters.put("saleList", salesItemList);
+            parameters.put("operator", operatorName);
             salesViewModel.saleOrdersSave(parameters);
         }
         Log.e("sale list", salesItemList.size() + "");
